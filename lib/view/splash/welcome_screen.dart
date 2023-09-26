@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hotel_booking_app/view/auth/login_screen.dart';
+import 'package:hotel_booking_app/view/auth/welcome_screen_auth.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -19,7 +20,7 @@ class WelcomeScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: 60.h,
+              height: 120.h,
             ),
             Text(
               "The\nbest\nplace\nfor the\nbest trip",
@@ -45,7 +46,7 @@ class WelcomeScreen extends StatelessWidget {
                           onTap: () {
                             Navigator.push(context, MaterialPageRoute(
                               builder: (context) {
-                                return const LoginScreen();
+                                return const WelcomeScreenAuth();
                               },
                             ));
                           },
