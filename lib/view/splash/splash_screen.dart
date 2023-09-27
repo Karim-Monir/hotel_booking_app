@@ -54,7 +54,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void goToNextPage() {
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 1), () {
       Navigator.push(context, MaterialPageRoute(
         builder: (context) {
           return const WelcomeScreen();

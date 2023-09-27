@@ -14,14 +14,21 @@ class WelcomeScreenAuth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        height: double.infinity,
-        width: double.infinity,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/images/background.png")),
+        body: Stack(
+      children: [
+        const SizedBox(
+          height: double.infinity,
+          width: double.infinity,
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/background.png"),
+                fit: BoxFit.fill,
+              ),
+            ),
+          ),
         ),
-        child: Column(
+        Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
@@ -57,7 +64,7 @@ class WelcomeScreenAuth extends StatelessWidget {
                   onPreesed: () {
                     Navigator.push(context, MaterialPageRoute(
                       builder: (context) {
-                        return RegisterScreen();
+                        return const RegisterScreen();
                       },
                     ));
                   },
@@ -109,7 +116,7 @@ class WelcomeScreenAuth extends StatelessWidget {
             )),
           ],
         ),
-      ),
-    );
+      ],
+    ));
   }
 }
