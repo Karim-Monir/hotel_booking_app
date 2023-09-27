@@ -14,7 +14,6 @@ class WelcomeScreenAuth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: Container(
         height: double.infinity,
         width: double.infinity,
@@ -26,7 +25,7 @@ class WelcomeScreenAuth extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: 60.h,
+              height: 70.h,
             ),
             IconButton(
                 onPressed: () {
@@ -53,11 +52,12 @@ class WelcomeScreenAuth extends StatelessWidget {
                   height: 45.h,
                 ),
                 CustomButton(
+                  textWhite: false,
                   text: "Create Acount",
                   onPreesed: () {
                     Navigator.push(context, MaterialPageRoute(
                       builder: (context) {
-                        return const RegisterScreen();
+                        return RegisterScreen();
                       },
                     ));
                   },
