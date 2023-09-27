@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hotel_booking_app/view/auth/login_screen.dart';
 import 'package:hotel_booking_app/view/auth/register_screen.dart';
 import 'package:hotel_booking_app/view/auth/welcome_screen_auth.dart';
 import 'package:hotel_booking_app/view/splash/splash_screen.dart';
@@ -18,9 +19,9 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return MaterialApp(
+        return const MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: RegisterScreen(),
+          home: LoginScreen(),
         );
       },
     );
