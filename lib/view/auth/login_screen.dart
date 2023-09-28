@@ -9,6 +9,8 @@ import 'package:hotel_booking_app/view/auth/widgets/custom_text_formFeild.dart';
 import 'package:hotel_booking_app/view/auth/widgets/row_auth.dart';
 import 'package:hotel_booking_app/view/splash/welcome_screen.dart';
 
+import '../home/layout.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -146,7 +148,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           if (formKey.currentState!.validate()) {
                             Navigator.push(context, MaterialPageRoute(
                               builder: (context) {
-                                return const WelcomeScreen();
+                                return  HomeLayout();
                               },
                             ));
                           }
