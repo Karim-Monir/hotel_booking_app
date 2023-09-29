@@ -8,9 +8,14 @@ import 'package:hotel_booking_app/view/auth/widgets/custom_button.dart';
 import 'package:hotel_booking_app/view/auth/widgets/row_auth.dart';
 import 'package:hotel_booking_app/view/auth/widgets/scond_button.dart';
 
-class WelcomeScreenAuth extends StatelessWidget {
+class WelcomeScreenAuth extends StatefulWidget {
   const WelcomeScreenAuth({super.key});
 
+  @override
+  State<WelcomeScreenAuth> createState() => _WelcomeScreenAuthState();
+}
+
+class _WelcomeScreenAuthState extends State<WelcomeScreenAuth> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,11 +81,13 @@ class WelcomeScreenAuth extends StatelessWidget {
                 SecondButton(
                     text: "Login",
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(
-                        builder: (context) {
-                          return const LoginScreen();
-                        },
-                      ));
+                      setState(() {
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) {
+                            return const LoginScreen();
+                          },
+                        ));
+                      });
                     }),
                 SizedBox(
                   height: 39.h,
