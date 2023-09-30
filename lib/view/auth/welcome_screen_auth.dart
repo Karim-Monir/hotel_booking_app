@@ -5,6 +5,7 @@ import 'package:hotel_booking_app/utils/constant.dart';
 import 'package:hotel_booking_app/view/auth/login_screen.dart';
 import 'package:hotel_booking_app/view/auth/register_screen.dart';
 import 'package:hotel_booking_app/view/auth/widgets/custom_button.dart';
+import 'package:hotel_booking_app/view/auth/widgets/or_text_widget.dart';
 import 'package:hotel_booking_app/view/auth/widgets/row_auth.dart';
 import 'package:hotel_booking_app/view/auth/widgets/scond_button.dart';
 
@@ -50,15 +51,8 @@ class _WelcomeScreenAuthState extends State<WelcomeScreenAuth> {
             Center(
                 child: Column(
               children: [
-                const Text(
-                  "Welcome!",
-                  style: TextStyle(
-                    fontFamily: "Inter",
-                    fontSize: 36,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xff000000),
-                    height: 44 / 36,
-                  ),
+                defultWidgets(
+                  text: "Welcome!",
                 ),
                 SizedBox(
                   height: 45.h,
@@ -92,29 +86,7 @@ class _WelcomeScreenAuthState extends State<WelcomeScreenAuth> {
                 SizedBox(
                   height: 39.h,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10),
-                      child: SvgPicture.asset("assets/images/Line-7.svg"),
-                    ),
-                    Text(
-                      "or",
-                      style: TextStyle(
-                        fontFamily: "Inter",
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        color: AppConst.KmainColor,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10),
-                      child: SvgPicture.asset("assets/images/Line-6.svg"),
-                    )
-                  ],
-                ),
+                const OrTextWidget(),
                 SizedBox(
                   height: 20.h,
                 ),
