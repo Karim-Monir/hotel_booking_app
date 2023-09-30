@@ -1,6 +1,9 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hotel_booking_app/view/splash/welcome_screen.dart';
+
+import 'carousel slider.dart';
 
 class homeScreen extends StatefulWidget {
   const homeScreen({super.key});
@@ -10,6 +13,7 @@ class homeScreen extends StatefulWidget {
 }
 
 class _homeScreenState extends State<homeScreen> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -101,6 +105,27 @@ class _homeScreenState extends State<homeScreen> {
               SizedBox(
                 height: 20.h,
               ),
+ 
+            ),
+          ),
+          ],
+    ),
+              SizedBox(height: 20.h,),
+            Row(
+              children: [
+                const Image(image: AssetImage("assets/images/map.png")),
+                SizedBox(width: 10.w,),
+                Text("Maadi Street 73",style: TextStyle(fontSize: 15.sp),)
+              ],
+            ),
+              SizedBox(height: 20.h,),
+              SizedBox(
+                  height: 240.h,
+                  width: 400.w,
+                  child: CarouselSliderDemo(img1: 'assets/images/MaskGroup.png', img2: 'assets/images/MaskGroup.png', img3: 'assets/images/MaskGroup.png', img4: 'assets/images/MaskGroup.png',)),
+
+              SizedBox(height: 15.h,),
+ 
               const Image(image: AssetImage("assets/images/MaskGroup.png")),
               SizedBox(
                 height: 10.h,
@@ -141,6 +166,7 @@ class _homeScreenState extends State<homeScreen> {
               SizedBox(
                 height: 15.h,
               ),
+ 
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
