@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hotel_booking_app/utils/constant.dart';
+import 'package:hotel_booking_app/view/home/widget/default_search.dart';
 import 'package:hotel_booking_app/view/home/widget/hotel_item.dart';
 import 'package:hotel_booking_app/view/home/hotel_screen.dart';
 
@@ -33,45 +34,46 @@ class _homeScreenState extends State<homeScreen> {
         child: Padding(
           padding: const EdgeInsets.only(left: 15, right: 10, bottom: 10),
           child: Column(children: [
-            Row(
-              children: [
-                Container(
-                    width: 278.w,
-                    height: 50.h,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      boxShadow: const [AppConst.defaultBoxShadow],
-                      color: Colors.white,
-                    ),
-                    child: TextFormField(
-                      decoration: const InputDecoration(
-                          border: InputBorder.none,
-                          prefixIcon: Icon(Icons.search, color: Colors.black),
-                          hintText: 'Search',
-                          hintStyle: TextStyle(
-                            color: Colors.grey,
-                          )),
-                    )),
-                SizedBox(
-                  width: 10.w,
-                ),
-                Container(
-                  width: 50.w,
-                  height: 50.h,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10),
-                    boxShadow: const [AppConst.defaultBoxShadow],
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Image.asset(
-                      'assets/images/setting.PNG',
-                    ),
-                  ),
-                ),
-              ],
-            ),
+            // Row(
+            //   children: [
+            //     Container(
+            //         width: 278.w,
+            //         height: 50.h,
+            //         decoration: BoxDecoration(
+            //           borderRadius: BorderRadius.circular(10),
+            //           boxShadow: const [AppConst.defaultBoxShadow],
+            //           color: Colors.white,
+            //         ),
+            //         child: TextFormField(
+            //           decoration: const InputDecoration(
+            //               border: InputBorder.none,
+            //               prefixIcon: Icon(Icons.search, color: Colors.black),
+            //               hintText: 'Search',
+            //               hintStyle: TextStyle(
+            //                 color: Colors.grey,
+            //               )),
+            //         )),
+            //     SizedBox(
+            //       width: 10.w,
+            //     ),
+            //     Container(
+            //       width: 50.w,
+            //       height: 50.h,
+            //       decoration: BoxDecoration(
+            //         color: Colors.white,
+            //         borderRadius: BorderRadius.circular(10),
+            //         boxShadow: const [AppConst.defaultBoxShadow],
+            //       ),
+            //       child: Padding(
+            //         padding: const EdgeInsets.all(8.0),
+            //         child: Image.asset(
+            //           'assets/images/setting.PNG',
+            //         ),
+            //       ),
+            //     ),
+            //   ],
+            // ),
+            const DefaultSearch(),
             SizedBox(
               height: 20.h,
             ),

@@ -4,6 +4,7 @@ import 'package:hotel_booking_app/utils/constant.dart';
 import 'package:hotel_booking_app/view/home/home.dart';
 import 'package:hotel_booking_app/view/home/room%20details.dart';
 import 'package:hotel_booking_app/view/home/room.dart';
+import 'package:hotel_booking_app/view/home/widget/default_search.dart';
 
 class searchScreen extends StatefulWidget {
   const searchScreen({super.key});
@@ -53,46 +54,7 @@ class _searchScreenState extends State<searchScreen> {
           padding: const EdgeInsets.only(left: 15, right: 10, bottom: 10),
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                      width: 278.w,
-                      height: 50.h,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: const [AppConst.defaultBoxShadow],
-                        color: Colors.white,
-                      ),
-                      child: TextFormField(
-                        decoration: const InputDecoration(
-                            border: InputBorder.none,
-                            suffixIcon: Icon(Icons.close, color: Colors.black),
-                            hintText: '   El Gouna',
-                            hintStyle: TextStyle(
-                              color: Colors.grey,
-                            )),
-                      )),
-                  SizedBox(
-                    width: 10.w,
-                  ),
-                  Container(
-                    width: 50.w,
-                    height: 50.h,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                      boxShadow: const [AppConst.defaultBoxShadow],
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image.asset(
-                        'assets/images/setting.PNG',
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              const DefaultSearch(),
               SizedBox(
                 height: 20.h,
               ),

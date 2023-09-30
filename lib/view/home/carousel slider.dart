@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
 
 class CarouselSliderDemo extends StatefulWidget {
@@ -34,79 +35,79 @@ class _CarouselSliderDemoState extends State<CarouselSliderDemo> {
       widget.img4,
     ];
 
-    return Scaffold(
-      body: Column(
-        children: [
-          CarouselSlider(
-            carouselController: _carouselController,
-            items: imageList.map((imageUrl) {
-              int index = imageList.indexOf(imageUrl);
-              return Builder(
-                builder: (BuildContext context) {
-                  return Container(
-                    width: MediaQuery.of(context).size.width,
-                    margin: const EdgeInsets.symmetric(horizontal: 5.0),
-                    child: ClipRRect(
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(5.0)),
-                      child: Stack(
-                        children: [
-                          Image.asset(
-                            imageUrl,
-                            fit: BoxFit.cover,
-                          ),
-                          Positioned(
-                            right: 3,
-                            child: GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  isFavorite = !isFavorite;
-                                });
-                              },
-                              child: Icon(
-                                IconlyBold.bookmark,
-                                color: isFavorite
-                                    ? const Color.fromRGBO(255, 115, 29, 1)
-                                    : const Color.fromARGB(255, 241, 224, 200),
-                              ),
+    return Column(
+      children: [
+        CarouselSlider(
+          carouselController: _carouselController,
+          items: imageList.map((imageUrl) {
+            int index = imageList.indexOf(imageUrl);
+            return Builder(
+              builder: (BuildContext context) {
+                return Container(
+                  width: MediaQuery.of(context).size.width,
+                  margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.all(Radius.circular(5.0)),
+                    child: Stack(
+                      children: [
+                        Image.asset(
+                          imageUrl,
+                          width: 327.w,
+                          height: 220.h,
+                          fit: BoxFit.cover,
+                        ),
+                        Positioned(
+                          right: 3,
+                          top: 3,
+                          child: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                isFavorite = !isFavorite;
+                              });
+                            },
+                            child: Icon(
+                              IconlyBold.bookmark,
+                              color: isFavorite
+                                  ? const Color.fromRGBO(255, 115, 29, 1)
+                                  : const Color.fromARGB(255, 241, 224, 200),
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                  );
-                },
-              );
-            }).toList(),
-            options: CarouselOptions(
-              height: 200.0,
-              initialPage: _currentIndex,
-              enableInfiniteScroll: false,
-              autoPlay: true,
-              onPageChanged: (index, reason) {
-                setState(() {
-                  _currentIndex = index;
-                });
+                  ),
+                );
               },
-            ),
+            );
+          }).toList(),
+          options: CarouselOptions(
+            // height: 200.0,
+            initialPage: _currentIndex,
+            // enableInfiniteScroll: false,
+            autoPlay: true,
+            onPageChanged: (index, reason) {
+              setState(() {
+                _currentIndex = index;
+              });
+            },
           ),
-          // SizedBox(height: 10.0),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: List<Widget>.generate(imageList.length, (int index) {
-              return Container(
-                width: 10.0,
-                height: 10.0,
-                margin: const EdgeInsets.symmetric(horizontal: 4.0),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: _currentIndex == index ? Colors.orange : Colors.grey,
-                ),
-              );
-            }),
-          ),
-        ],
-      ),
+        ),
+        const SizedBox(height: 10.0),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: List<Widget>.generate(imageList.length, (int index) {
+            return Container(
+              width: 5.0.w,
+              height: 5.0.h,
+              margin: const EdgeInsets.symmetric(horizontal: 4.0),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: _currentIndex == index ? Colors.orange : Colors.grey,
+              ),
+            );
+          }),
+        ),
+      ],
     );
   }
 }
