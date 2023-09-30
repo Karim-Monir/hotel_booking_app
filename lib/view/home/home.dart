@@ -1,6 +1,9 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hotel_booking_app/view/splash/welcome_screen.dart';
+
+import 'carousel slider.dart';
 
 class homeScreen extends StatefulWidget {
   const homeScreen({super.key});
@@ -10,6 +13,7 @@ class homeScreen extends StatefulWidget {
 }
 
 class _homeScreenState extends State<homeScreen> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -92,23 +96,11 @@ class _homeScreenState extends State<homeScreen> {
               ],
             ),
               SizedBox(height: 20.h,),
-              const Image(image: AssetImage("assets/images/MaskGroup.png")),
-              SizedBox(height: 10.h,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              SizedBox(
+                  height: 210,
+                  width: 400,
+                  child: CarouselSliderDemo(img1: 'assets/images/MaskGroup.png', img2: 'assets/images/MaskGroup.png', img3: 'assets/images/MaskGroup.png', img4: 'assets/images/MaskGroup.png',)),
 
-                children: [
-                  const CircleAvatar(backgroundColor: Color.fromRGBO(217, 217, 217, 1),radius: 5,),
-                  SizedBox(width: 4.w,),
-                  const CircleAvatar(backgroundColor: Color.fromRGBO(217, 217, 217, 1),radius: 5),
-                  SizedBox(width: 4.w,),
-                  const CircleAvatar(backgroundColor: Color.fromRGBO(217, 217, 217, 1),radius: 5),
-                  SizedBox(width: 4.w,),
-                  const CircleAvatar(backgroundColor: Color.fromRGBO(255, 115, 29, 1),radius: 5),
-                  SizedBox(width: 4.w,),
-                  const CircleAvatar(backgroundColor: Color.fromRGBO(217, 217, 217, 1),radius: 5),
-                ],
-              ),
               SizedBox(height: 15.h,),
               Row(
                 mainAxisAlignment:  MainAxisAlignment.spaceBetween,

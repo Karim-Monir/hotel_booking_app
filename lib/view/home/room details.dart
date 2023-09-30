@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hotel_booking_app/view/home/search.dart';
 import 'package:iconly/iconly.dart';
+
+import 'carousel slider.dart';
 
 class roomDetails extends StatefulWidget {
   String photoPath;
@@ -23,10 +26,12 @@ class _roomDetailsState extends State<roomDetails> {
     'assets/images/wind.png'
   ];
   bool isFavorite = false;
+  // String Rates = widget.rate;
+  // double _rating = 3;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     
+
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
@@ -39,45 +44,11 @@ class _roomDetailsState extends State<roomDetails> {
           child: SafeArea(
             child: Column(
                children: [
-                 Column(
-
-                   children: [
-                     Stack(
-                       children: [
-                         SizedBox(child: Image.asset(widget.photoPath)),
-                         Positioned(
-                           left: 300,
-                           child: GestureDetector(
-                               onTap: () {
-                                 setState(() {
-                                   isFavorite = !isFavorite;
-                                 });
-                               },
-                               child: Icon(IconlyBold.bookmark,
-                                   color: isFavorite ? const Color.fromRGBO(255, 115, 29, 1):
-                                   const Color.fromARGB(255, 241, 224, 200))),
-                         ),
-                       ],
-                     ),
-                     SizedBox(height: 10.h,),
-                     Row(
-                       mainAxisAlignment: MainAxisAlignment.center,
-
-                       children: [
-                         const CircleAvatar(backgroundColor: Color.fromRGBO(217, 217, 217, 1),radius: 5,),
-                         SizedBox(width: 4.w,),
-                         const CircleAvatar(backgroundColor: Color.fromRGBO(217, 217, 217, 1),radius: 5),
-                         SizedBox(width: 4.w,),
-                         const CircleAvatar(backgroundColor: Color.fromRGBO(217, 217, 217, 1),radius: 5),
-                         SizedBox(width: 4.w,),
-                         const CircleAvatar(backgroundColor: Color.fromRGBO(255, 115, 29, 1),radius: 5),
-                         SizedBox(width: 4.w,),
-                         const CircleAvatar(backgroundColor: Color.fromRGBO(217, 217, 217, 1),radius: 5),
-                       ],
-                     ),
-
-                   ],
-                 ),
+                 SizedBox(
+                     height: 210,
+                     width: 400,
+                     child: CarouselSliderDemo(img1:widget.photoPath, img2: widget.photoPath,
+                       img3: widget.photoPath, img4: widget.photoPath,)),
                  SizedBox(height: 20.h,),
                  Row(
                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -99,23 +70,44 @@ class _roomDetailsState extends State<roomDetails> {
                  ),
                  SizedBox(height: 15.h,),
                  Row(
-                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
                    children: [
-                     Row(
-                       children: [
-                         const Icon(Icons.star,color: Color.fromRGBO(255, 115, 29, 100) ,),
-                         const Icon(Icons.star,color: Color.fromRGBO(255, 115, 29, 100) ,),
-                         const Icon(Icons.star,color: Color.fromRGBO(255, 115, 29, 100) ,),
-                         const Icon(Icons.star,color: Color.fromRGBO(255, 115, 29, 100) ,),
-                         SizedBox(width: 10.w,),
-                         Text(widget.rate, style: TextStyle(fontSize: 15.sp,fontWeight: FontWeight.bold),),
-                       ],
+                     Expanded(
+                       flex: 2,
+                       child: Row(
+                         children: [
+                           Center(
+                             child: RatingBar.builder(
+                               initialRating: double.parse(widget.rate),
+                               minRating: 1,
+                               direction: Axis.horizontal,
+                               allowHalfRating: true,
+                               itemCount: 5,
+                               itemSize: 20.0,
+                               itemBuilder: (context, _) => Icon(
+                                 Icons.star,
+                                 color: Colors.amber,
+                               ),
+                               onRatingUpdate: (rating) {
+                                 setState(() {
+                                   double _rating = double.parse(widget.rate);
+                                   _rating = rating;
+                                 });
+                               },
+                             ),
+                           ),
+                           SizedBox(width: 10.w,),
+                           Text(widget.rate, style: TextStyle(fontSize: 15.sp,fontWeight: FontWeight.bold),),
+                         ],
+                       ),
                      ),
-                     Row(
-                       children: [
-                       TextButton(onPressed: (){}, child:  Text("87 reviews >",style: TextStyle(fontSize: 16.sp,fontWeight: FontWeight.bold,color: Colors.black, decoration: TextDecoration.underline,)),
-                       )
-                       ],
+                     Expanded(
+                       child: Row(
+                         children: [
+                         TextButton(onPressed: (){}, child:  Text("87 reviews >",style: TextStyle(fontSize: 16.sp,fontWeight: FontWeight.bold,color: Colors.black, decoration: TextDecoration.underline,)),
+                         )
+                         ],
+                       ),
                      ),
 
 
