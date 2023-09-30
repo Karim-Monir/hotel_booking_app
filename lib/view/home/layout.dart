@@ -8,17 +8,19 @@ import 'home.dart';
 import 'list.dart';
 
 class HomeLayout extends StatefulWidget {
+  const HomeLayout({super.key});
+
   @override
   _HomeLayoutState createState() => _HomeLayoutState();
 }
 
 class _HomeLayoutState extends State<HomeLayout> {
   List<Widget> screens = [
-    homeScreen(),
-    searchScreen(),
-    listScreen(),
-    favoriteScreen(),
-    profileScreen()
+    const homeScreen(),
+    const searchScreen(),
+    const listScreen(),
+    const favoriteScreen(),
+    const profileScreen()
   ];
   int currentIndex = 0;
 
@@ -46,68 +48,69 @@ class _HomeLayoutState extends State<HomeLayout> {
           child: BottomNavigationBar(
             items: [
               BottomNavigationBarItem(
-                icon: Icon(Icons.home),
+                icon: const Icon(Icons.home),
                 label: "",
                 activeIcon: Container(
                   decoration: BoxDecoration(
-                    color: Color.fromRGBO(255, 115, 29, 100),
+                    color: const Color.fromRGBO(255, 115, 29, 100),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   height: 36.0.h,
                   width: 36.0.w,
-                  child: Icon(Icons.home, color: Colors.black),
+                  child: const Icon(Icons.home, color: Colors.black),
                 ),
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.search),
+                icon: const Icon(Icons.search),
                 label: "",
                 activeIcon: Container(
                   decoration: BoxDecoration(
-                    color: Color.fromRGBO(255, 115, 29, 100),
+                    color: const Color.fromRGBO(255, 115, 29, 100),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   height: 36.0.h,
                   width: 36.0.w,
-                  child: Icon(Icons.search, color: Colors.black),
+                  child: const Icon(Icons.search, color: Colors.black),
                 ),
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.list_alt_outlined),
+                icon: const Icon(Icons.list_alt_outlined),
                 label: "",
                 activeIcon: Container(
                   decoration: BoxDecoration(
-                    color: Color.fromRGBO(255, 115, 29, 100),
+                    color: const Color.fromRGBO(255, 115, 29, 100),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   height: 36.0.h,
                   width: 36.0.w,
-                  child: Icon(Icons.list_alt_outlined, color: Colors.black),
+                  child:
+                      const Icon(Icons.list_alt_outlined, color: Colors.black),
                 ),
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.favorite_border),
+                icon: const Icon(Icons.favorite_border),
                 label: "",
                 activeIcon: Container(
                   decoration: BoxDecoration(
-                    color: Color.fromRGBO(255, 115, 29, 100),
+                    color: const Color.fromRGBO(255, 115, 29, 100),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   height: 36.0.h,
                   width: 36.0.w,
-                  child: Icon(Icons.favorite_border, color: Colors.black),
+                  child: const Icon(Icons.favorite_border, color: Colors.black),
                 ),
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.person_pin),
+                icon: const Icon(Icons.person_pin),
                 label: "",
                 activeIcon: Container(
                   decoration: BoxDecoration(
-                    color: Color.fromRGBO(255, 115, 29, 100),
+                    color: const Color.fromRGBO(255, 115, 29, 100),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   height: 36.0.h,
                   width: 36.0.w,
-                  child: CircleAvatar(
+                  child: const CircleAvatar(
                     foregroundColor: Colors.white,
                     backgroundImage: AssetImage("assets/images/profile.png"),
                     backgroundColor: Colors.white,

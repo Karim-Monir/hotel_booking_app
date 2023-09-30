@@ -6,15 +6,19 @@ class favoriteScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
+        body: Scaffold(
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text("Waiting.....",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30.sp),)
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Container(
+            child: Text(
+              "watting please until ui/ux\nfinished it.....",
+              style: TextStyle(color: Colors.black38, fontSize: 22.sp),
+            ),
+          ),
         ),
       ),
-    );
+    ));
   }
 }

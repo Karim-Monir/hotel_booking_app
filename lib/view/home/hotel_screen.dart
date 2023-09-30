@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class listScreen extends StatelessWidget {
-  const listScreen({super.key});
+class HotelScreen extends StatelessWidget {
+  const HotelScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

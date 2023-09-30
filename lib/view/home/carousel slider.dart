@@ -9,7 +9,11 @@ class CarouselSliderDemo extends StatefulWidget {
   String img4;
 
   CarouselSliderDemo(
-      {required this.img1, required this.img2, required this.img3, required this.img4});
+      {super.key,
+      required this.img1,
+      required this.img2,
+      required this.img3,
+      required this.img4});
 
   @override
   _CarouselSliderDemoState createState() => _CarouselSliderDemoState();
@@ -17,13 +21,13 @@ class CarouselSliderDemo extends StatefulWidget {
 
 class _CarouselSliderDemoState extends State<CarouselSliderDemo> {
   //List<bool> isFavoriteList = [false, false, false, false];
-  bool isFavorite= false;
+  bool isFavorite = false;
   int _currentIndex = 0;
-  CarouselController _carouselController = CarouselController();
+  final CarouselController _carouselController = CarouselController();
 
   @override
   Widget build(BuildContext context) {
-    List<String> _imageList = [
+    List<String> imageList = [
       widget.img1,
       widget.img2,
       widget.img3,
@@ -35,15 +39,16 @@ class _CarouselSliderDemoState extends State<CarouselSliderDemo> {
         children: [
           CarouselSlider(
             carouselController: _carouselController,
-            items: _imageList.map((imageUrl) {
-              int index = _imageList.indexOf(imageUrl);
+            items: imageList.map((imageUrl) {
+              int index = imageList.indexOf(imageUrl);
               return Builder(
                 builder: (BuildContext context) {
                   return Container(
                     width: MediaQuery.of(context).size.width,
-                    margin: EdgeInsets.symmetric(horizontal: 5.0),
+                    margin: const EdgeInsets.symmetric(horizontal: 5.0),
                     child: ClipRRect(
-                      borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(5.0)),
                       child: Stack(
                         children: [
                           Image.asset(
@@ -55,7 +60,7 @@ class _CarouselSliderDemoState extends State<CarouselSliderDemo> {
                             child: GestureDetector(
                               onTap: () {
                                 setState(() {
-                                  isFavorite= !isFavorite;
+                                  isFavorite = !isFavorite;
                                 });
                               },
                               child: Icon(
@@ -77,7 +82,7 @@ class _CarouselSliderDemoState extends State<CarouselSliderDemo> {
               height: 200.0,
               initialPage: _currentIndex,
               enableInfiniteScroll: false,
-              autoPlay: false,
+              autoPlay: true,
               onPageChanged: (index, reason) {
                 setState(() {
                   _currentIndex = index;
@@ -85,14 +90,14 @@ class _CarouselSliderDemoState extends State<CarouselSliderDemo> {
               },
             ),
           ),
-         // SizedBox(height: 10.0),
+          // SizedBox(height: 10.0),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: List<Widget>.generate(_imageList.length, (int index) {
+            children: List<Widget>.generate(imageList.length, (int index) {
               return Container(
                 width: 10.0,
                 height: 10.0,
-                margin: EdgeInsets.symmetric(horizontal: 4.0),
+                margin: const EdgeInsets.symmetric(horizontal: 4.0),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: _currentIndex == index ? Colors.orange : Colors.grey,

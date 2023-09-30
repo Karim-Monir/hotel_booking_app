@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hotel_booking_app/utils/constant.dart';
 import 'package:hotel_booking_app/view/home/home.dart';
 import 'package:hotel_booking_app/view/home/room%20details.dart';
 import 'package:hotel_booking_app/view/home/room.dart';
@@ -18,17 +19,14 @@ class _searchScreenState extends State<searchScreen> {
     'assets/images/room3.png',
     'assets/images/room4.png'
   ];
-  List<String> rates = [
-    '4.8',
-    '4.0',
-    '4.1',
-    '3.9'
-  ];  List<String> titles = [
+  List<String> rates = ['4.8', '4.0', '4.1', '3.9'];
+  List<String> titles = [
     'Suite Room 70 m\u00b2',
     'Room 30 m\u00b2',
     'Twin Room 80 m\u00b2',
     'Room 20 m\u00b2'
-  ];  List<String> costs = [
+  ];
+  List<String> costs = [
     '\$420 / 2  night',
     '\$300 / 4  night',
     '\$540 / 4  night',
@@ -40,7 +38,11 @@ class _searchScreenState extends State<searchScreen> {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          IconButton(icon: const Icon( Icons.notifications_active_outlined,color: Colors.black),onPressed: (){},),
+          IconButton(
+            icon: const Icon(Icons.notifications_active_outlined,
+                color: Colors.black),
+            onPressed: () {},
+          ),
         ],
         elevation: 0,
         backgroundColor: Colors.white,
@@ -48,12 +50,7 @@ class _searchScreenState extends State<searchScreen> {
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(
-
-              left: 15,
-              right: 10,
-              bottom: 10
-          ),
+          padding: const EdgeInsets.only(left: 15, right: 10, bottom: 10),
           child: Column(
             children: [
               Row(
@@ -64,21 +61,14 @@ class _searchScreenState extends State<searchScreen> {
                       height: 50.h,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Color(0x3F000000),
-                            blurRadius: 4,
-                            offset: Offset(-2, 0),
-                            spreadRadius: 0,
-                          )
-                        ],
+                        boxShadow: const [AppConst.defaultBoxShadow],
                         color: Colors.white,
                       ),
                       child: TextFormField(
                         decoration: const InputDecoration(
                             border: InputBorder.none,
-                            suffixIcon: Icon(Icons.close,color: Colors.black),
-                            hintText: 'El Gouna',
+                            suffixIcon: Icon(Icons.close, color: Colors.black),
+                            hintText: '   El Gouna',
                             hintStyle: TextStyle(
                               color: Colors.grey,
                             )),
@@ -90,16 +80,9 @@ class _searchScreenState extends State<searchScreen> {
                     width: 50.w,
                     height: 50.h,
                     decoration: BoxDecoration(
-                      color:Colors.white,
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(10),
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Color(0x3F000000),
-                          blurRadius: 3,
-                          offset: Offset(-3, 0),
-                          spreadRadius: 0,
-                        )
-                      ],
+                      boxShadow: const [AppConst.defaultBoxShadow],
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -110,31 +93,44 @@ class _searchScreenState extends State<searchScreen> {
                   ),
                 ],
               ),
-              SizedBox(height: 20.h,),
+              SizedBox(
+                height: 20.h,
+              ),
               Row(
                 children: [
-                  Text("38 ", style: TextStyle(fontSize: 18.sp,color: const Color.fromRGBO(255, 115, 29, 1)),),
-                  Text("Options ", style: TextStyle(fontSize: 18.sp,),),
+                  Text(
+                    "38 ",
+                    style: TextStyle(
+                        fontSize: 18.sp,
+                        color: const Color.fromRGBO(255, 115, 29, 1)),
+                  ),
+                  Text(
+                    "Options ",
+                    style: TextStyle(
+                      fontSize: 18.sp,
+                    ),
+                  ),
                 ],
               ),
-              SizedBox(height: 20.h,),
-               SizedBox(
-                 height: 540.h,
-                 child: ListView.separated(
-                     itemCount: rooms.length,
-                    separatorBuilder:(context, index)=> SizedBox(height: 50.h,),
+              SizedBox(
+                height: 20.h,
+              ),
+              SizedBox(
+                height: 540.h,
+                child: ListView.separated(
+                    itemCount: rooms.length,
+                    separatorBuilder: (context, index) => SizedBox(
+                          height: 50.h,
+                        ),
                     itemBuilder: (context, index) {
-      return RoomBuilder(
-        photoPath: rooms[index],
-        title: titles[index],
-        rate: rates[index],
-        cost: costs[index],
-
-      );
-    }),
-               ),
-
-
+                      return RoomBuilder(
+                        photoPath: rooms[index],
+                        title: titles[index],
+                        rate: rates[index],
+                        cost: costs[index],
+                      );
+                    }),
+              ),
             ],
           ),
         ),
