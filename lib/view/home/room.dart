@@ -39,8 +39,8 @@ class _RoomBuilderState extends State<RoomBuilder> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SizedBox(
-                height: 210,
-                width: 400,
+                height: 240.h,
+                width: 400.w,
                 child: CarouselSliderDemo(img1:widget.photoPath, img2: widget.photoPath,
                   img3: widget.photoPath, img4: widget.photoPath,)),
             SizedBox(height: 15.h,),

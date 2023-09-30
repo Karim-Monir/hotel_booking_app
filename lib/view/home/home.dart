@@ -97,8 +97,8 @@ class _homeScreenState extends State<homeScreen> {
             ),
               SizedBox(height: 20.h,),
               SizedBox(
-                  height: 210,
-                  width: 400,
+                  height: 240.h,
+                  width: 400.w,
                   child: CarouselSliderDemo(img1: 'assets/images/MaskGroup.png', img2: 'assets/images/MaskGroup.png', img3: 'assets/images/MaskGroup.png', img4: 'assets/images/MaskGroup.png',)),
 
               SizedBox(height: 15.h,),

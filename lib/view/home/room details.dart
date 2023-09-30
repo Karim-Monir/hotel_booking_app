@@ -26,8 +26,6 @@ class _roomDetailsState extends State<roomDetails> {
     'assets/images/wind.png'
   ];
   bool isFavorite = false;
-  // String Rates = widget.rate;
-  // double _rating = 3;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +34,7 @@ class _roomDetailsState extends State<roomDetails> {
       body: SingleChildScrollView(
         child: Padding(
           padding:  const EdgeInsets.only(
-              top: 10,
+              top: 20,
               left: 20,
               right: 10,
               bottom: 10
@@ -45,8 +43,8 @@ class _roomDetailsState extends State<roomDetails> {
             child: Column(
                children: [
                  SizedBox(
-                     height: 210,
-                     width: 400,
+                     height: 240.h,
+                     width: 400.w,
                      child: CarouselSliderDemo(img1:widget.photoPath, img2: widget.photoPath,
                        img3: widget.photoPath, img4: widget.photoPath,)),
                  SizedBox(height: 20.h,),
@@ -84,14 +82,14 @@ class _roomDetailsState extends State<roomDetails> {
                                allowHalfRating: true,
                                itemCount: 5,
                                itemSize: 20.0,
-                               itemBuilder: (context, _) => Icon(
+                               itemBuilder: (context, _) => const Icon(
                                  Icons.star,
                                  color: Colors.amber,
                                ),
                                onRatingUpdate: (rating) {
                                  setState(() {
-                                   double _rating = double.parse(widget.rate);
-                                   _rating = rating;
+                                   // double _rating = double.parse(widget.rate);
+                                   // _rating = rating;
                                  });
                                },
                              ),
